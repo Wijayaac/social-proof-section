@@ -3,33 +3,106 @@
 .proof {
   margin-block: 5.33rem;
   padding-inline: 0.5rem;
+  max-width: 100vw;
+  margin-inline: auto;
+  @include breakpoint-up(medium) {
+    max-width: 95vw;
+  }
+  &__bg-top,
+  &__bg-bottom {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  &__bg-bottom {
+    .proof__bg-desktop,
+    .proof__bg-mobile {
+      top: unset;
+      inset: auto auto 0 auto;
+    }
+  }
+  &__bg-desktop {
+    display: none;
+    position: absolute;
+    @include breakpoint-up(medium) {
+      inset: 0 auto auto auto;
+      display: block;
+      position: absolute;
+    }
+  }
+  &__bg-mobile {
+    display: block;
+    position: absolute;
+    inset: 0 auto auto auto;
+    @include breakpoint-up(medium) {
+      display: none;
+      position: absolute;
+    }
+  }
+  &__wrapper {
+    position: relative;
+    z-index: 10;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    &-text {
+      flex: 100%;
+    }
+    @include breakpoint-up(medium) {
+      flex-direction: row;
+      &-text {
+        flex: 30%;
+      }
+    }
+  }
   &__title {
     font-size: 2rem;
     line-height: 2.1rem;
     text-align: center;
     color: $dark-magenta;
+    max-width: 411px;
+    @include breakpoint-up(medium) {
+      text-align: left;
+      max-width: 350px;
+    }
   }
   &__description {
     margin-block-start: 1rem;
     padding-inline: 0.5rem;
+    max-width: 411px;
     text-align: center;
     color: $gray-magenta;
+    @include breakpoint-up(medium) {
+      max-width: 500px;
+      text-align: left;
+    }
   }
   &__card-review {
-    display: flex;
+    display: inline-flex;
+    flex: 100%;
     flex-wrap: wrap;
     flex-direction: column;
+    @include breakpoint-up(medium) {
+      flex: 50%;
+    }
   }
   &__card-rating {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap-reverse;
+    flex-direction: column-reverse;
     padding: 1rem 2.5rem;
     margin-block: 0.75rem;
     margin-inline: 0.75rem;
     border-radius: 1rem;
     background-color: rgba($gray-magenta, $alpha: 0.2);
+    @include breakpoint-up(medium) {
+      flex-direction: row-reverse;
+      &:nth-child(n) {
+        width: 400px;
+      }
+    }
   }
   &__card-star img {
     display: inline-block;
