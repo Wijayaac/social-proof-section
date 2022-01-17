@@ -137,7 +137,7 @@
     margin-inline: 0.75rem;
     @include breakpoint-up(medium) {
       flex-direction: row;
-      height: 260px;
+      height: 300px;
     }
   }
   &__card-comment {
